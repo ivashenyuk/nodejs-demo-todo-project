@@ -1,4 +1,3 @@
-const passport = require('passport');
 const mongoose = require('./../mongoose-connection');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');

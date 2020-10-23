@@ -1,8 +1,7 @@
 const express = require('express')
+require('dotenv').config();
 const app = express()
 const auth = require('./src/auth')
-require('dotenv').config();
-
 const bodyParser = require('body-parser');
 const expressSession = require('express-session')({
   secret: 'secret',
@@ -13,7 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession);
 
-
+const TaskRouter = require('./src/routes/taskRoutes');
+app.use('/tasks', TaskRouter);
 
 
 //  Use auth routes  
